@@ -1,0 +1,14 @@
+.dude {
+    position: absolute;
+    bottom: 0px;
+}
+
+.obstacle {
+    position: absolute;
+    /* background-image:url('assets/bottle.png'); */
+    width: 60px;
+    height: 60px;
+    bottom: 0px;
+    border-radius: 50%;
+    background-color: red;
+}
