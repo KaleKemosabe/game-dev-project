@@ -3,6 +3,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h1 {
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+
 h2 {
     font-family: 'Henny Penny', cursive;
     color: #ffffff;
