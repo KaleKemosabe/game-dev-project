@@ -5,7 +5,8 @@ const alert = document.getElementById('alert');
 let isJumping = false;
 let gravity = 0.9;
 let isGameOver = false;
-let sound = document.getElementById('bg-music');
+let bgMusic = document.getElementById('bg-music');
+let jumpSound = document.getElementById('boing');
 
 function control(e) {
 // character jump on spacebar
@@ -22,6 +23,8 @@ document.addEventListener('keyup', control);
 let position = 0;
 function jump() {
     let count = 0;
+// jump sound
+    let boingSound = true;
     let timerId = setInterval(function () {
 // dude moving down after jump
         if (count === 20) {
@@ -45,6 +48,13 @@ function jump() {
         dude.style.bottom = position + 'px';
         console.log(dude.style.bottom);
     },20)
+// jump sound
+    if (boingSound) {
+        jumpSound.pause();
+        jumpSound.currentTime = 0;
+        jumpSound.play();
+        boingSound = false;
+    }
 }
 // create obstacles, define speed, position etc
 function generateObstacles() {
@@ -74,9 +84,9 @@ function generateObstacles() {
     if (!isGameOver) setTimeout(generateObstacles, randomTime);
 // background music
     if (isGameOver === false) {
-        sound.play();
+        bgMusic.play();
         } else {
-            sound.pause();
+            bgMusic.pause();
         };
     };
     generateObstacles();
