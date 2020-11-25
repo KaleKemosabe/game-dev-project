@@ -5,6 +5,7 @@ const alert = document.getElementById('alert');
 let isJumping = false;
 let gravity = 0.9;
 let isGameOver = false;
+let sound = document.getElementById('bg-music');
 
 function control(e) {
 // character jump on spacebar
@@ -15,6 +16,7 @@ function control(e) {
         }
     }
 }
+
 document.addEventListener('keyup', control);
 
 let position = 0;
@@ -70,7 +72,12 @@ function generateObstacles() {
         obstacle.style.left = obstaclePosition + 'px';
     },20)
     if (!isGameOver) setTimeout(generateObstacles, randomTime);
-}
-generateObstacles();
-
-})
+// background music
+    if (isGameOver === false) {
+        sound.play();
+        } else {
+            sound.pause();
+        };
+    };
+    generateObstacles();
+});
